@@ -4,6 +4,7 @@ import NewsTitle from "../utils/NewsTitle"
 import OurNewsLetter from "../utils/OurNewsLetter"
 import SocialLink from "../utils/SocialLink"
 import RecentNews from "../utils/RecentNews"
+import { baseUrl } from '../../lib/utils'
 
 function LiveWire() {
 
@@ -13,7 +14,7 @@ function LiveWire() {
 
     const getData = async (pages) => {
     setLoading(true)
-    const { data } = await axios.get(`https://api.turingexplorers.com/api/v1/news/page/${pages}`);
+    const { data } = await axios.get(`${baseUrl}/api/v1/news/page/${pages}`);
     setNews(data);
     setLoading(false)
     };

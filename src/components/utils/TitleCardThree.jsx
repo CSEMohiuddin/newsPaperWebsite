@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs'
 import NewsTitle from './NewsTitle'
+import { baseUrl } from '../../lib/utils';
 
 function TitleCardThree({ ctg }) {
 
@@ -11,7 +12,7 @@ function TitleCardThree({ ctg }) {
 
   const getData = async (ctg) => {
 
-    const { data } = await axios.post(`https://api.turingexplorers.com/api/v1/news/category`,
+    const { data } = await axios.post(`${baseUrl}/api/v1/news/category`,
 
       JSON.stringify({ name: ctg }),
 
@@ -24,7 +25,7 @@ function TitleCardThree({ ctg }) {
     );
 
     let i = 1
-    let newsData = data.data.map(item => {
+    let newsData = data && data.data.map(item => {
       item.sl = i
       i++
       return item

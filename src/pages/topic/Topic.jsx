@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { baseUrl } from "../../lib/utils";
 
 import TopicCon from '../../components/topic/TopicCon'
 import PageCard from '../../components/utils/PageCard' 
@@ -14,7 +15,7 @@ function Topic() {
   const [news, setNews] = useState([])
   
   const getData = async (topic) => {
-    const { data } = await axios.post(`https://api.turingexplorers.com/api/v1/news/category`,
+    const { data } = await axios.post(`${baseUrl}/api/v1/news/category`,
 
       JSON.stringify({ name: topic }),
       {

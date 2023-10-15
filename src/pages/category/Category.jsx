@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import CategoryCon from "../../components/categroy/CategoryCon";
 import PageCard from '../../components/utils/PageCard' 
+import { baseUrl } from "../../lib/utils";
 
 
 
@@ -14,7 +15,7 @@ function Category() {
   const [news, setNews] = useState([])
   
   const getData = async (ctg) => {
-    const { data } = await axios.post(`https://api.turingexplorers.com/api/v1/news/category`,
+    const { data } = await axios.post(`${baseUrl}/api/v1/news/category`,
 
       JSON.stringify({ name: ctg }),
       {

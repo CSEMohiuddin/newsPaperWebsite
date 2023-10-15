@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { BsArrowRightCircle } from 'react-icons/bs'
 import NewsTitle from './NewsTitle'
+import { baseUrl } from '../../lib/utils'
 
 function StorisCardTwo({ ctg }) {
 
@@ -10,7 +11,7 @@ function StorisCardTwo({ ctg }) {
 
   const getData = async (ctg) => {
 
-    const { data } = await axios.post(`https://api.turingexplorers.com/api/v1/news/category`,
+    const { data } = await axios.post(`${baseUrl}/api/v1/news/category`,
 
       JSON.stringify({ name: ctg }),
 

@@ -6,13 +6,14 @@ import TitleCardThree from "../utils/TitleCardThree";
 import TitleCardFour from "../utils/TitleCardFour";
 import TitleCardFive from "../utils/TitleCardFive";
 import TitleCardSix from "../utils/TitleCardSix";
+import { baseUrl } from "../../lib/utils";
 
 function TrendingTopic() {
 
   const [ctg, setCtg] = useState('')
 
   const getData = async () => {
-    const { data } = await axios.get(`https://api.turingexplorers.com/api/v1/news/category/all`);
+    const { data } = await axios.get(`${baseUrl}/api/v1/news/category/all`);
     const ctgData = data.data.slice(0,6);
     setCtg(ctgData);
   };

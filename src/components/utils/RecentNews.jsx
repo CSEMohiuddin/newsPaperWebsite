@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import { baseUrl } from "../../lib/utils";
 import NewsTitle from "./NewsTitle"
 
 function RecentNews() {
@@ -8,7 +8,7 @@ function RecentNews() {
   const [latest, setLatestNews] = useState([])
 
   const getData = async () => {
-    const { data } = await axios.get(`https://api.turingexplorers.com/api/v1/news/letest`);
+    const { data } = await axios.get(`${baseUrl}/api/v1/news/letest`);
     setLatestNews(data.data);
   };
   

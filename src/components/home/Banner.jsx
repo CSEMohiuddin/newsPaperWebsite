@@ -1,14 +1,21 @@
 import axios from "axios";
 import { useState, useEffect } from "react"
 import NewsTitle from "../utils/NewsTitle"
+import { baseUrl } from "../../lib/utils";
 
 function Banner() {
 
 const [latest, setLatestNews] = useState([])
 
 const getData = async () => {
-  const { data } = await axios.get(`https://api.turingexplorers.com/api/v1/news/letest`);
-  setLatestNews(data.data);
+  try {
+    const { data } = await axios.get(`${baseUrl}/api/v1/news/letest`);
+    console.log("data,", data)
+    setLatestNews(data.data);
+  } catch (error) {
+    console.log(error)
+  }
+
 };
 
 useEffect(()=>{

@@ -4,13 +4,14 @@ import { useState, useEffect } from "react"
 import OurNewsLetter from "../utils/OurNewsLetter"
 import RecentNews from "../utils/RecentNews"
 import SocialLink from "../utils/SocialLink"
+import { baseUrl } from "../../lib/utils"
 
 function AllCategoryCon() {
 
     const [allCtg, setAllCtg] = useState('')
 
     const getData = async () => {
-      const { data } = await axios.get(`https://api.turingexplorers.com/api/v1/news/category/all`);
+      const { data } = await axios.get(`${baseUrl}/api/v1/news/category/all`);
       setAllCtg(data?.data);
     };
   

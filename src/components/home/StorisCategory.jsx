@@ -5,6 +5,7 @@ import StorisCard from "../utils/StorisCard"
 import StorisCardTwo from "../utils/StorisCardTwo"
 import StorisCardThree from "../utils/StorisCardThree"
 import StorisCardFour from "../utils/StorisCardFour"
+import { baseUrl } from "../../lib/utils"
 
 function StorisCategory() {
 
@@ -12,7 +13,7 @@ function StorisCategory() {
   const [ctg, setCtg] = useState('')
 
   const getData = async () => {
-    const { data } = await axios.get(`https://api.turingexplorers.com/api/v1/news/category/all`);
+    const { data } = await axios.get(`${baseUrl}/api/v1/news/category/all`);
     const ctgData = data.data.slice(1,5);
     setCtg(ctgData);
   };
